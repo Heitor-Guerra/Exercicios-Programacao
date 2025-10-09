@@ -1,0 +1,11 @@
+main.c: In function ‘GeraRankingTXT’:
+main.c:375:12: warning: unused variable ‘j’ [-Wunused-variable]
+  375 |     int i, j;
+      |            ^
+main.c: In function ‘InicializaJogo’:
+main.c:140:9: warning: pointer ‘arquivoConfig’ may be used after ‘fclose’ [-Wuse-after-free]
+  140 |         fclose(arquivoConfig);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+main.c:134:5: note: call to ‘fclose’ here
+  134 |     fclose(arquivoConfig);
+      |     ^~~~~~~~~~~~~~~~~~~~~
