@@ -1,4 +1,0 @@
-segmentation fault
-1
-5
-6
