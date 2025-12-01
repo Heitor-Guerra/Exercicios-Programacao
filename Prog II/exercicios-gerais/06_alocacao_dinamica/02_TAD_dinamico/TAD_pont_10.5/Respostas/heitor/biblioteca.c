@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define TAM_INCREMENTO_LIVROS 1
+
 /**
  * Inicializa uma biblioteca vazia.
  * Ponteiros são inicializados com NULL;
@@ -9,10 +12,9 @@
  */
 tBiblioteca *InicializarBiblioteca() {
   tBiblioteca *bibli = (tBiblioteca *)malloc(sizeof(tBiblioteca));
-  for (int i = 0; i < MAX_LIVROS; i++) {
-    bibli->livros[i] = NULL;
-  }
+  bibli->livros = (tLivros **)malloc(NUM_INICIAL_LIVROS * sizeof(tLivros *));
   bibli->tamanho = 0;
+  bibli->tam_max_atual = NUM_INICIAL_LIVROS;
   return bibli;
 }
 
@@ -25,6 +27,7 @@ void ApagaBiblioteca(tBiblioteca *biblioteca) {
   for (int i = 0; i < biblioteca->tamanho; i++) {
     ApagaLivro(biblioteca->livros[i]);
   }
+  free(biblioteca->livros);
   free(biblioteca);
 }
 
@@ -38,10 +41,10 @@ void ApagaBiblioteca(tBiblioteca *biblioteca) {
  * @param livro Ponteiro para o livro a ser adicionado.
  */
 void AdicionarLivroNaBiblioteca(tBiblioteca *biblioteca, tLivros *livro) {
-  if (biblioteca->tamanho >= MAX_LIVROS) {
-    printf("A biblioteca esta cheia. Nao eh possivel adicionar mais livros.\n");
-    ApagaLivro(livro);
-    return;
+  if (biblioteca->tamanho >= biblioteca->tam_max_atual) {
+    biblioteca->tam_max_atual += TAM_INCREMENTO_LIVROS;
+    biblioteca->livros = (tLivros **)realloc(
+        biblioteca->livros, biblioteca->tam_max_atual * sizeof(tLivros *));
   }
   printf("Livro adicionado com sucesso!\n");
   biblioteca->livros[biblioteca->tamanho] = livro;
