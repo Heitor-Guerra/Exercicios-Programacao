@@ -6,8 +6,8 @@
  * @brief Estrutura para representar uma agência bancária.
  */
 struct Agencia {
-  int numero;
-  char nome[51];
+  int num;
+  char nome[20];
   Vector *contas;
 };
 
@@ -30,7 +30,7 @@ tAgencia *CriaAgencia() {
 void DestroiAgencia(DataType agencia) {
   tAgencia *a = (tAgencia *)agencia;
   VectorDestroy(a->contas, DestroiConta);
-  free(agencia);
+  free(a);
 }
 
 /**
@@ -38,7 +38,7 @@ void DestroiAgencia(DataType agencia) {
  * @param agencia A agência bancária a ser lida.
  */
 void LeAgencia(tAgencia *agencia) {
-  scanf("%d;%[^\n]\n", &agencia->numero, agencia->nome);
+  scanf("%d;%[^\n]\n", &agencia->num, agencia->nome);
 }
 
 /**
@@ -58,7 +58,7 @@ void AdicionaConta(tAgencia *agencia, tConta *conta) {
  * @return 1 se os números forem iguais, 0 caso contrário.
  */
 int ComparaAgencia(int numAgencia, tAgencia *agencia2) {
-  return numAgencia == agencia2->numero;
+  return numAgencia == agencia2->num;
 }
 
 /**
@@ -81,7 +81,7 @@ float GetSaldoMedioAgencia(tAgencia *agencia) {
  */
 void ImprimeDadosAgencia(tAgencia *agencia) {
   printf("\tNome: %s\n", agencia->nome);
-  printf("\tNumero: %d\n", agencia->numero);
+  printf("\tNumero: %d\n", agencia->num);
   printf("\tNumero de contas cadastradas: %d\n", VectorSize(agencia->contas));
   printf("\tSaldo médio: R$%.2f\n\n", GetSaldoMedioAgencia(agencia));
 }

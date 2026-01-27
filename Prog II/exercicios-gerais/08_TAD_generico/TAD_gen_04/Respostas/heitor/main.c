@@ -1,13 +1,15 @@
+#include "agencia.h"
 #include "banco.h"
+#include "conta.h"
 #include <stdio.h>
 
 int main() {
   tBanco *banco = CriaBanco();
   LeBanco(banco);
 
-  char opcao;
-  while (scanf("%c\n", &opcao) == 1 && opcao != 'F') {
-    switch (opcao) {
+  char escolha;
+  while (scanf("%c\n", &escolha) == 1 && escolha != 'F') {
+    switch (escolha) {
     case 'A': {
       tAgencia *temp = CriaAgencia();
       LeAgencia(temp);
@@ -17,15 +19,14 @@ int main() {
     case 'C': {
       tConta *temp = CriaConta();
       LeConta(temp);
-      int numAgencia;
-      scanf("%d\n", &numAgencia);
-      InsereContaBanco(banco, numAgencia, temp);
+      int num;
+      scanf("%d\n", &num);
+      InsereContaBanco(banco, num, temp);
       break;
     }
     }
   }
   ImprimeRelatorioBanco(banco);
   DestroiBanco(banco);
-
   return 0;
 }

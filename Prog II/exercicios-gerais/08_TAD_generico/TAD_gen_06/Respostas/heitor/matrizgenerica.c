@@ -5,11 +5,12 @@
 
 // Adaptado do código compartilhado pelo prof. Thiago
 
+typedef void *DataType;
+
 struct matrizgenerica {
-  void ***dados;
-  int linhas;
-  int colunas;
-  int bytesE;
+  DataType **dados;
+  int linhas, colunas;
+  int byteE;
 };
 
 /**
@@ -24,17 +25,20 @@ struct matrizgenerica {
  * @return Um ponteiro para a estrutura que armazena uma matriz genérica
  */
 tMatrizGenerica *CriaMatrizGenerica(int linhas, int colunas, int numByteElem) {
-  tMatrizGenerica *matriz = (tMatrizGenerica *)malloc(sizeof(tMatrizGenerica));
-  matriz->bytesE = numByteElem;
-  matriz->linhas = linhas;
-  matriz->colunas = colunas;
+  tMatrizGenerica *m = (tMatrizGenerica *)malloc(sizeof(tMatrizGenerica));
+  m->linhas = linhas;
+  m->colunas = colunas;
+  m->byteE = numByteElem;
 
-  matriz->dados = (void ***)malloc(linhas * sizeof(void **));
+  m->dados = (DataType **)malloc(linhas * sizeof(DataType *));
   for (int i = 0; i < linhas; i++) {
-    matriz->dados[i] = (void **)malloc(colunas * sizeof(void *));
+    m->dados[i] = (DataType *)malloc(colunas * sizeof(DataType));
+    for (int j = 0; j < colunas; j++) {
+      m->dados[i][j] = (DataType)malloc(numByteElem);
+    }
   }
 
-  return matriz;
+  return m;
 }
 
 /**
@@ -106,10 +110,8 @@ void *ObtemElementoMatrizGenerica(tMatrizGenerica *mat, int linha, int coluna) {
  */
 void AtribuiElementoMatrizGenerica(tMatrizGenerica *mat, int linha, int coluna,
                                    void *elem) {
-  mat->dados[linha][coluna] = malloc(mat->bytesE);
-  memcpy(mat->dados[linha][coluna], elem, mat->bytesE);
+  memcpy(mat->dados[linha][coluna], elem, mat->byteE);
 }
-
 /**
  * @brief Imprime os elementos usando um callback para imprimir o tipo de dados
  * da matriz
@@ -131,8 +133,6 @@ void ImprimirMatrizGenerica(tMatrizGenerica *mat,
   }
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 /**
  * @brief Encontra a transposta de uma matriz passada como parâmetro
  *
@@ -142,13 +142,14 @@ void ImprimirMatrizGenerica(tMatrizGenerica *mat,
  */
 tMatrizGenerica *MatrizTransposta(tMatrizGenerica *mat) {
   tMatrizGenerica *t =
-      CriaMatrizGenerica(mat->colunas, mat->linhas, mat->bytesE);
-  for (int i = 0; i < mat->linhas; i++) {
-    for (int j = 0; j < mat->colunas; j++) {
-      AtribuiElementoMatrizGenerica(t, j, i,
-                                    ObtemElementoMatrizGenerica(mat, i, j));
+      CriaMatrizGenerica(mat->colunas, mat->linhas, mat->byteE);
+
+  for (int i = 0; i < t->linhas; i++) {
+    for (int j = 0; j < t->colunas; j++) {
+      memcpy(t->dados[i][j], mat->dados[j][i], mat->byteE);
     }
   }
+
   return t;
 }
 
@@ -170,21 +171,25 @@ tMatrizGenerica *MultiplicaMatrizes(tMatrizGenerica *mat1,
                                     tMatrizGenerica *mat2, int numByteTarget,
                                     void *(*multi_elem)(void *, void *),
                                     void *(*soma_elem)(void *, void *)) {
-  tMatrizGenerica *res =
+  tMatrizGenerica *t =
       CriaMatrizGenerica(mat1->linhas, mat2->colunas, numByteTarget);
-  for (int i = 0; i < res->linhas; i++) {
-    for (int j = 0; j < res->colunas; j++) {
-      res->dados[i][j] = multi_elem(mat1->dados[i][0], mat2->dados[0][j]);
+
+  for (int i = 0; i < t->linhas; i++) {
+    for (int j = 0; j < t->colunas; j++) {
+      free(t->dados[i][j]);
+      DataType temp0 = multi_elem(mat1->dados[i][0], mat2->dados[0][j]);
       for (int k = 1; k < mat1->colunas; k++) {
-        void *temp = multi_elem(mat1->dados[i][k], mat2->dados[k][j]);
-        void *temp2 = soma_elem(res->dados[i][j], temp);
-        free(temp);
-        free(res->dados[i][j]);
-        res->dados[i][j] = temp2;
+        DataType temp1 = multi_elem(mat1->dados[i][k], mat2->dados[k][j]);
+        DataType temp2 = soma_elem(temp0, temp1);
+        free(temp0);
+        free(temp1);
+        temp0 = temp2;
       }
+      t->dados[i][j] = temp0;
     }
   }
-  return res;
+
+  return t;
 }
 
 /**
@@ -199,12 +204,14 @@ tMatrizGenerica *MultiplicaMatrizes(tMatrizGenerica *mat1,
  */
 tMatrizGenerica *ConverteTipoMatriz(tMatrizGenerica *mat2, int novoNumByteElem,
                                     void *(*converte_elem)(void *)) {
-  tMatrizGenerica *res =
+  tMatrizGenerica *t =
       CriaMatrizGenerica(mat2->linhas, mat2->colunas, novoNumByteElem);
-  for (int i = 0; i < mat2->linhas; i++) {
-    for (int j = 0; j < mat2->colunas; j++) {
-      res->dados[i][j] = converte_elem(mat2->dados[i][j]);
+
+  for (int i = 0; i < t->linhas; i++) {
+    for (int j = 0; j < t->colunas; j++) {
+      free(t->dados[i][j]);
+      t->dados[i][j] = converte_elem(mat2->dados[i][j]);
     }
   }
-  return res;
+  return t;
 }

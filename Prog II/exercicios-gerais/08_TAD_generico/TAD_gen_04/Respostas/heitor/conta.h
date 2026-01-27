@@ -9,8 +9,7 @@ typedef struct Conta tConta;
 
 /**
  * @brief Função para criar uma nova conta bancária.
- * @return Um ponteiro para a nova conta bancária criada. Se a memória não puder
- * ser alocada, a função imprime uma mensagem de erro e termina o programa.
+ * @return Um ponteiro para a nova conta bancária criada. Se a memória não puder ser alocada, a função imprime uma mensagem de erro e termina o programa.
  */
 tConta *CriaConta();
 
@@ -21,8 +20,7 @@ tConta *CriaConta();
 void DestroiConta(DataType conta);
 
 /**
- * @brief Função para ler uma conta bancária no formato "numero;nome do
- * cliente;saldo inicial".
+ * @brief Função para ler uma conta bancária no formato "numero;nome do cliente;saldo inicial".
  * @param conta A conta bancária a ser lida.
  */
 void LeConta(tConta *conta);

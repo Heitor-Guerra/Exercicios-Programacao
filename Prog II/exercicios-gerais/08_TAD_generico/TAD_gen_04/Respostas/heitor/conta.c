@@ -7,7 +7,7 @@
  */
 struct Conta {
   int numero;
-  char nome[51];
+  char nome[20];
   float saldo;
 };
 
@@ -17,8 +17,8 @@ struct Conta {
  * ser alocada, a função imprime uma mensagem de erro e termina o programa.
  */
 tConta *CriaConta() {
-  tConta *conta = (tConta *)malloc(sizeof(tConta));
-  return conta;
+  tConta *c = (tConta *)malloc(sizeof(tConta));
+  return c;
 }
 
 /**

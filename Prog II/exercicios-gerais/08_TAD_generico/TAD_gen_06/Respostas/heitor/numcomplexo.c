@@ -16,11 +16,10 @@ struct complexo {
  * imaginária são iguais aos valores passados para a função
  */
 tNumComplexo *CriaNumComplexo(float real, float imag) {
-  tNumComplexo *comp = (tNumComplexo *)malloc(sizeof(tNumComplexo));
-  comp->real = real;
-  comp->im = imag;
-
-  return comp;
+  tNumComplexo *num = (tNumComplexo *)malloc(sizeof(tNumComplexo));
+  num->real = real;
+  num->im = imag;
+  return num;
 }
 
 /**

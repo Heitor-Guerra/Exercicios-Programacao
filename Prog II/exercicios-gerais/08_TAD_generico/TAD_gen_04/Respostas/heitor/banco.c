@@ -7,7 +7,7 @@
  */
 struct Banco {
   Vector *agencias;
-  char nome[51];
+  char nome[20];
 };
 
 /**
@@ -16,9 +16,9 @@ struct Banco {
  * alocada, a função imprime uma mensagem de erro e termina o programa.
  */
 tBanco *CriaBanco() {
-  tBanco *banco = (tBanco *)malloc(sizeof(tBanco));
-  banco->agencias = VectorConstruct();
-  return banco;
+  tBanco *b = (tBanco *)malloc(sizeof(tBanco));
+  b->agencias = VectorConstruct();
+  return b;
 }
 
 /**
@@ -54,12 +54,11 @@ void AdicionaAgencia(tBanco *banco, tAgencia *agencia) {
  */
 void InsereContaBanco(tBanco *banco, int numAgencia, tConta *cliente) {
   for (int i = 0; i < VectorSize(banco->agencias); i++) {
-    if (ComparaAgencia(numAgencia, VectorGet(banco->agencias, i))) {
-      AdicionaConta(VectorGet(banco->agencias, i), cliente);
-      return;
+    tAgencia *agencia = VectorGet(banco->agencias, i);
+    if (ComparaAgencia(numAgencia, agencia)) {
+      AdicionaConta(agencia, cliente);
     }
   }
-  DestroiConta(cliente);
 }
 
 /**

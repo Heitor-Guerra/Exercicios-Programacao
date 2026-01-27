@@ -1,13 +1,13 @@
 #include "vector.h"
 #include <stdlib.h>
 
+#define TAM_INCREMENTO_VECTOR 3
+
 struct Vector {
   DataType *data;
   int num;
   int numAloc;
 };
-
-#define TAM_INCREMENTO_VECTOR 3
 
 /**
  * @brief Cria um vetor vazio
@@ -19,7 +19,7 @@ Vector *VectorConstruct() {
   Vector *vec = (Vector *)malloc(sizeof(Vector));
   vec->num = 0;
   vec->numAloc = TAM_INCREMENTO_VECTOR;
-  vec->data = malloc(vec->numAloc * sizeof(DataType));
+  vec->data = (DataType *)malloc(vec->numAloc * sizeof(DataType));
   return vec;
 }
 
