@@ -1,9 +1,12 @@
-#if !defined(_PROFESSOR_H_)
-#define _PROFESSOR_H_
+#include "professor.h"
+#include <stdlib.h>
+#include <string.h>
 
-#include <stdio.h>
-
-typedef struct Professor tProfessor;
+struct Professor {
+  char nome[101];
+  char data[101];
+  char dep[101];
+};
 
 /**
  * @brief Cria um novo professor.
@@ -13,19 +16,37 @@ typedef struct Professor tProfessor;
  * @return Um ponteiro para a estrutura do professor criada. Caso a alocação
  * falhe, a função termina o programa.
  */
-tProfessor *CriaProfessor(char *nome, char *dataNascimento, char *departamento);
+tProfessor *CriaProfessor(char *nome, char *dataNascimento,
+                          char *departamento) {
+  tProfessor *p = (tProfessor *)calloc(1, sizeof(tProfessor));
+  strcpy(p->nome, nome);
+  strcpy(p->data, dataNascimento);
+  strcpy(p->dep, departamento);
+
+  return p;
+}
 
 /**
  * @brief Destroi um professor.
  * @param prof Ponteiro para a estrutura do professor a ser destruída.
  */
-void DestroiProfessor(tProfessor *prof);
+void DestroiProfessor(tProfessor *prof) { free(prof); }
 
 /**
  * @brief Lê um professor da entrada padrão.
  * @return Um ponteiro para a estrutura do professor lida.
  */
-tProfessor *LeProfessor();
+tProfessor *LeProfessor() {
+  char nome[101];
+  char data[101];
+  char dep[101];
+
+  scanf("\n%[^\n]\n", nome);
+  scanf("%[^\n]\n", data);
+  scanf("%[^\n]\n", dep);
+
+  return CriaProfessor(nome, data, dep);
+}
 
 /**
  * @brief Compara o nome de dois professores.
@@ -34,7 +55,9 @@ tProfessor *LeProfessor();
  * @return Um inteiro indicando o resultado da comparação, conforme a função
  * strcmp.
  */
-int ComparaNomeProfessor(tProfessor *prof1, tProfessor *prof2);
+int ComparaNomeProfessor(tProfessor *prof1, tProfessor *prof2) {
+  return strcmp(prof1->nome, prof2->nome);
+}
 
 /**
  * @brief Salva um professor em um arquivo binário.
@@ -42,7 +65,10 @@ int ComparaNomeProfessor(tProfessor *prof1, tProfessor *prof2);
  * @param file Ponteiro para o arquivo onde o professor será salvo.
  * @return Um inteiro indicando o número de bytes salvos deste professor.
  */
-int SalvaProfessor(tProfessor *prof, FILE *file);
+int SalvaProfessor(tProfessor *prof, FILE *file) {
+  fwrite(prof, sizeof(tProfessor), 1, file);
+  return sizeof(tProfessor);
+}
 
 /**
  * @brief Carrega um professor de um arquivo binário.
@@ -50,12 +76,13 @@ int SalvaProfessor(tProfessor *prof, FILE *file);
  * @param file Ponteiro para o arquivo de onde o professor será carregado.
  * @return Um inteiro indicando o número de bytes lidos deste professor.
  */
-int CarregaProfessor(tProfessor *prof, FILE *file);
+int CarregaProfessor(tProfessor *prof, FILE *file) {
+  fread(prof, sizeof(tProfessor), 1, file);
+  return sizeof(tProfessor);
+}
 
 /**
  * @brief Imprime o nome de um professor.
  * @param prof Ponteiro para a estrutura do professor cujo nome será impresso.
  */
-void ImprimeNomeProfessor(tProfessor *prof);
-
-#endif // _PROFESSOR_H_
+void ImprimeNomeProfessor(tProfessor *prof) { printf("%s\n", prof->nome); }

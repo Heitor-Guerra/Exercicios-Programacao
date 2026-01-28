@@ -66,25 +66,31 @@ void SalvaAlunosBinario(Aluno **alunos, char *fileName, int numeroAlunos) {
 
   fwrite(&numeroAlunos, sizeof(int), 1, file);
   for (int i = 0; i < numeroAlunos; i++) {
-    int size = strlen(alunos[i]->nome) + 1;
-    total += fwrite(&size, sizeof(int), 1, file);
-    total += fwrite(alunos[i]->nome, sizeof(char), size, file);
+    int size = strlen(alunos[i]->nome);
+    fwrite(&size, sizeof(int), 1, file);
+    fwrite(alunos[i]->nome, sizeof(char), size, file);
+    total += size * sizeof(char) + sizeof(int);
 
-    size = strlen(alunos[i]->data) + 1;
-    total += fwrite(&size, sizeof(int), 1, file);
-    total += fwrite(alunos[i]->data, sizeof(char), size, file);
+    size = strlen(alunos[i]->data);
+    fwrite(&size, sizeof(int), 1, file);
+    fwrite(alunos[i]->data, sizeof(char), size, file);
+    total += size * sizeof(char) + sizeof(int);
 
-    size = strlen(alunos[i]->curso) + 1;
-    total += fwrite(&size, sizeof(int), 1, file);
-    total += fwrite(alunos[i]->curso, sizeof(char), size, file);
+    size = strlen(alunos[i]->curso);
+    fwrite(&size, sizeof(int), 1, file);
+    fwrite(alunos[i]->curso, sizeof(char), size, file);
+    total += size * sizeof(char) + sizeof(int);
 
-    size = strlen(alunos[i]->periodo) + 1;
-    total += fwrite(&size, sizeof(int), 1, file);
-    total += fwrite(alunos[i]->periodo, sizeof(char), size, file);
+    size = strlen(alunos[i]->periodo);
+    fwrite(&size, sizeof(int), 1, file);
+    fwrite(alunos[i]->periodo, sizeof(char), size, file);
+    total += size * sizeof(char) + sizeof(int);
 
-    total += fwrite(&alunos[i]->pConc, sizeof(int), 1, file);
+    fwrite(&alunos[i]->pConc, sizeof(int), 1, file);
+    total += sizeof(int);
 
-    total += fwrite(&alunos[i]->cra, sizeof(float), 1, file);
+    fwrite(&alunos[i]->cra, sizeof(float), 1, file);
+    total += sizeof(float);
   }
 
   printf("Numero de bytes salvos: %d\n", total);
@@ -111,15 +117,19 @@ void CarregaAlunosBinario(Aluno **alunos, char *fileName) {
     int size;
     fread(&size, sizeof(int), 1, file);
     fread(nome, sizeof(char), size, file);
+    nome[size] = '\0';
 
     fread(&size, sizeof(int), 1, file);
     fread(data, sizeof(char), size, file);
+    data[size] = '\0';
 
     fread(&size, sizeof(int), 1, file);
     fread(curso, sizeof(char), size, file);
+    curso[size] = '\0';
 
     fread(&size, sizeof(int), 1, file);
     fread(periodo, sizeof(char), size, file);
+    periodo[size] = '\0';
 
     fread(&pConc, sizeof(int), 1, file);
 
