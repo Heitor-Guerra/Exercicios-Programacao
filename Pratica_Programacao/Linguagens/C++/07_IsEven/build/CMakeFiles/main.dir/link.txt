@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/main.dir/link.d CMakeFiles/main.dir/src/isEven.cpp.o -o main

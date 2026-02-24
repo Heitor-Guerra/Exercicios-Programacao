@@ -1,0 +1,17 @@
+version: "5.0.2"
+service:
+  db:
+    image: mysql
+    container_name: mysql_cont
+    environment:
+      MYSQL_PASSWORD: 123
+    command: --default-authentication-plugin=mysql_native_password
+    volumes: ./
+    restart: always
+
+  api:
+    build: "./api"
+    container_name: api-container
+    ports: "8080:8080"
+    depends_on: db
+

@@ -1,0 +1,3 @@
+/home/Heitor-Guerra/Documents/Prática Programação/C++/04_SwapValues/build/CMakeFiles/main.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/04_SwapValues/build/CMakeFiles/edit_cache.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/04_SwapValues/build/CMakeFiles/rebuild_cache.dir

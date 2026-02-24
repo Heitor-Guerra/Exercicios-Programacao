@@ -1,0 +1,3 @@
+/home/Heitor-Guerra/Documents/Prática Programação/C++/05_SizeofTypes/build/CMakeFiles/main.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/05_SizeofTypes/build/CMakeFiles/edit_cache.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/05_SizeofTypes/build/CMakeFiles/rebuild_cache.dir

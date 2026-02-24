@@ -1,0 +1,10 @@
+Compile: gcc -o main *.c
+Extra flags: -Wall -Werror -fsanitize=address
+
+run: ./main
+
+CMake: cd build/
+cmake ..
+make
+
+

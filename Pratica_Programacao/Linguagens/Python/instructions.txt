@@ -1,0 +1,13 @@
+Venv: python -m venv .venv
+source .venv/bin/activate
+
+libs:  pip install <nome>
+run: python main.py
+
+
+UV:
+init: uv init <nome> --python <version>
+Venv: uv venv --python <version>
+libs: uv add <nome> or uv pip install <nome>
+lock: uv lock
+lib list: uv freeze

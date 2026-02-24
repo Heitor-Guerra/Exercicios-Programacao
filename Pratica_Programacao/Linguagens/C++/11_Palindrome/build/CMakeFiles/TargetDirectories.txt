@@ -1,0 +1,3 @@
+/home/Heitor-Guerra/Documents/Prática Programação/C++/11_Palindrome/build/CMakeFiles/palindrome.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/11_Palindrome/build/CMakeFiles/edit_cache.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/11_Palindrome/build/CMakeFiles/rebuild_cache.dir

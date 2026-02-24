@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.10)
+project(IsEven)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+add_compile_options(-Wall -Werror)
+file(GLOB_RECURSE main src/*.cpp)
+add_executable(main ${main})

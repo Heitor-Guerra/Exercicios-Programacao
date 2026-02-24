@@ -1,0 +1,3 @@
+/home/Heitor-Guerra/Documents/Prática Programação/C++/08_Largest/build/CMakeFiles/main.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/08_Largest/build/CMakeFiles/edit_cache.dir
+/home/Heitor-Guerra/Documents/Prática Programação/C++/08_Largest/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/Heitor-Guerra/Documents/Prática Programação/C++/07_IsEven/build",
+  "command": "/usr/bin/c++   -Wall -Werror -o CMakeFiles/main.dir/src/isEven.cpp.o -c \"/home/Heitor-Guerra/Documents/Prática Programação/C++/07_IsEven/src/isEven.cpp\"",
+  "file": "/home/Heitor-Guerra/Documents/Prática Programação/C++/07_IsEven/src/isEven.cpp",
+  "output": "CMakeFiles/main.dir/src/isEven.cpp.o"
+}
+]
