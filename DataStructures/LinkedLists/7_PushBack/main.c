@@ -1,0 +1,26 @@
+#include "forward_list.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+void print(data_type val) {
+    printf("%d", val);
+}
+
+int main() {
+    int num = 0;
+    scanf("%d", &num);
+    ForwardList* l = forward_list_construct();
+    for(int i = 0; i < num; i++) {
+        int value;
+        scanf("\n%d", &value);
+        forward_list_push_back(l, value);
+    }
+
+    printf("Size: %d\n", forward_list_size(l));
+    printf("Lista: ");
+    forward_list_print(l, print);
+
+    forward_list_destroy(l);
+
+    return 0;
+}
