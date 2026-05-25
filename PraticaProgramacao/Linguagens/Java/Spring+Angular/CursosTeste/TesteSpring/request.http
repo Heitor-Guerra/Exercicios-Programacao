@@ -1,0 +1,14 @@
+### GET request to example server
+GET http://localhost:8080/api/courses/
+
+###
+POST http://localhost:8080/api/courses
+Content-Type: application/json
+
+{
+  "name": "C",
+  "description": "Curso de C",
+  "category": "Software"
+}
+###
+DELETE http://localhost:8080/api/courses/5

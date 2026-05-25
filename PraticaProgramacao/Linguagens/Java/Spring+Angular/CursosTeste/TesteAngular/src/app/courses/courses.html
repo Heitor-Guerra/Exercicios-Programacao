@@ -1,0 +1,63 @@
+<mat-card appearance="outlined">
+  <mat-toolbar> Courses </mat-toolbar>
+  @if (dataSource$ | async) {
+    <table mat-table [dataSource]="dataSource$" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- id Column -->
+      <ng-container matColumnDef="_id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element._id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.category }}
+          <mat-icon aria-hidden="false" aria-label="Course category" style="margin: 0 16px; vertical-align: center"> {{ element.category | category}} </mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          <button matMiniFab aria-label="Add course">
+            <mat-icon (click)="onAdd()">add</mat-icon>
+          </button>
+        </th>
+
+        <td mat-cell *matCellDef="let element">
+          <button matMiniFab aria-label="Edit course">
+            <mat-icon (click)="onUpdate(element._id)">edit</mat-icon>
+          </button>
+          <span></span>
+          <button matMiniFab aria-label="Remove course" class="delete-button">
+            <mat-icon (click)="onDelete(element._id)">delete</mat-icon>
+          </button>
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  } @else {
+    <div class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+
+</mat-card>
