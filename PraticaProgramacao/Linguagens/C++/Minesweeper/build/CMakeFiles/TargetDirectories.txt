@@ -1,3 +1,0 @@
-/home/Heitor-Guerra/Documents/Prática Programação/C++/Minesweeper/build/CMakeFiles/minesweeper.dir
-/home/Heitor-Guerra/Documents/Prática Programação/C++/Minesweeper/build/CMakeFiles/edit_cache.dir
-/home/Heitor-Guerra/Documents/Prática Programação/C++/Minesweeper/build/CMakeFiles/rebuild_cache.dir

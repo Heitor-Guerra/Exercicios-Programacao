@@ -1,0 +1,28 @@
+services:
+  mysql:
+    image: mariadb:latest
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: test123      # Root password
+      MYSQL_DATABASE: parking_control_db                  # Database to be created
+    networks:
+      - spring-mysql-net
+
+  app:
+    build: .               # Build the Spring Boot image using the Dockerfile in the current directory
+    container_name: spring-app
+    environment:
+      MYSQL_HOST: mysql            # Service name as hostname
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: parking_control_db
+      MYSQL_ROOT_PASSWORD: test123      # Root password
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - spring-mysql-net
+
+networks:
+  spring-mysql-net:
+    driver: bridge

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/build",
+  "command": "/usr/bin/c++  -I/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/Includes -Wall -Wextra -o CMakeFiles/boost_practice.dir/src/main.cpp.o -c /home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/src/main.cpp",
+  "file": "/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/src/main.cpp",
+  "output": "CMakeFiles/boost_practice.dir/src/main.cpp.o"
+}
+]

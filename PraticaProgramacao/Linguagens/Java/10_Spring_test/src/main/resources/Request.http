@@ -1,0 +1,32 @@
+### GET parking Spot By Id
+GET http://localhost:8080/parking_spot/8976b38d-ebcd-409e-bd77-581e02475e33
+
+### GET All parking Spots
+GET  http://localhost:8080/parking_spot
+
+### POST Request
+POST http://localhost:8080/parking_spot
+Content-Type: application/json
+
+{
+  "licensePlateCar": "123456789",
+  "brandCar": "Mercedes",
+  "modelCar": "BM123",
+  "colorCar": "Blue",
+  "nameOwner": "Heitor"
+}
+
+### Delete Request
+DELETE http://localhost:8080/parking_spot/2d410f4a-f3a9-44fc-99fb-49e412ad6814
+
+### Put Request
+PUT http://localhost:8080/parking_spot/839fc1a0-e588-4eee-89a2-d58425f87e28
+Content-Type: application/json
+
+{
+  "licensePlateCar": "987654321",
+  "brandCar": "BMW",
+  "modelCar": "BM123",
+  "colorCar": "Blue",
+  "nameOwner": "Heitor"
+}

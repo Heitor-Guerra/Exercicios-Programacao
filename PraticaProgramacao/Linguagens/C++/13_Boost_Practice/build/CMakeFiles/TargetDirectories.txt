@@ -1,0 +1,3 @@
+/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/build/CMakeFiles/boost_practice.dir
+/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/build/CMakeFiles/edit_cache.dir
+/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/build/CMakeFiles/rebuild_cache.dir

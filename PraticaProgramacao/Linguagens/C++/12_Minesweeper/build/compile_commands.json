@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/build",
+  "command": "/usr/bin/c++  -I/home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/Includes -isystem /usr/include/opencv4 -Wall -Wextra -o CMakeFiles/minesweeper.dir/src/main.cpp.o -c /home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/src/main.cpp",
+  "file": "/home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/src/main.cpp",
+  "output": "CMakeFiles/minesweeper.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/build",
+  "command": "/usr/bin/c++  -I/home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/Includes -isystem /usr/include/opencv4 -Wall -Wextra -o CMakeFiles/minesweeper.dir/src/table.cpp.o -c /home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/src/table.cpp",
+  "file": "/home/Heitor-Guerra/Documents/Exercicios-Programacao/Pratica_Programacao/Linguagens/C++/Minesweeper/src/table.cpp",
+  "output": "CMakeFiles/minesweeper.dir/src/table.cpp.o"
+}
+]

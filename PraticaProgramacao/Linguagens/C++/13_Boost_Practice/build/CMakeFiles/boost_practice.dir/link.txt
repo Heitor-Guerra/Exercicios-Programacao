@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/boost_practice.dir/link.d CMakeFiles/boost_practice.dir/src/main.cpp.o -o boost_practice   -L/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/13_Boost_Practice/Includes
