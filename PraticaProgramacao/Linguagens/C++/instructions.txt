@@ -1,4 +1,4 @@
-Compile: g++ -o main *.c
+Compile: g++ -o main *.cpp
 Extra flags: -Wall -Werror -fsanitize=address
 
 run: ./main

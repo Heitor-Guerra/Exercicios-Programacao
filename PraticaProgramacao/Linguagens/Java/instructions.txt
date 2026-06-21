@@ -8,3 +8,4 @@ build: mvn package
 install dependencies: mvn dependency:copy-dependencies
 run: java -cp target/Main.jar:target/dependency/* com.main.App
 run2: mvn exec:java -Dexec.mainClass=com.main.App
+run springBoot: mvn spring-boot:run

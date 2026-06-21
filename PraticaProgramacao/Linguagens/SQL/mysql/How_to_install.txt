@@ -1,10 +1,7 @@
-# Part 0 - Updating system
+# Part 1 - Updating system
 sudo pacman -Syyu
 
-# Part 1 - Installing software dependencies
-sudo pacman -S git gnome-keyring
-
-# Part 2 - Compile and Install MySQL Server
+# Part 2 - build
 # (This might take like ~4 hours since it's compiling the source)
 git clone https://aur.archlinux.org/mysql.git
 cd mysql

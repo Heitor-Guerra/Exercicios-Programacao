@@ -7,7 +7,8 @@ run: python main.py
 
 UV:
 init: uv init <nome> --python <version>
-Venv: uv venv --python <version>
-libs: uv add <nome> or uv pip install <nome>
+venv: uv venv --python <version>
+libs: uv add <nome>
 lock: uv lock
+notebook: uv run --with jupyter jupyter lab
 lib list: uv freeze
