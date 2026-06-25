@@ -1,3 +1,0 @@
-Maior elemento: 99
-Menor elemento: 10
-Media dos elementos: 34.00
