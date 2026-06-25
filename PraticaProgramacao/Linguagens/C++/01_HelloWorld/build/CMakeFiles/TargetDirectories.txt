@@ -1,3 +1,0 @@
-/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/build/CMakeFiles/example.dir
-/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/build/CMakeFiles/edit_cache.dir
-/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/build/CMakeFiles/rebuild_cache.dir

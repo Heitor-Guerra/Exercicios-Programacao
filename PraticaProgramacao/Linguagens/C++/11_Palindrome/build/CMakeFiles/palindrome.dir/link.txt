@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/palindrome.dir/link.d CMakeFiles/palindrome.dir/src/main.cpp.o -o palindrome
