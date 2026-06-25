@@ -1,3 +1,0 @@
-/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/14_Sum_of_Primes/build/CMakeFiles/main.dir
-/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/14_Sum_of_Primes/build/CMakeFiles/edit_cache.dir
-/home/Heitor-Guerra/Documents/Exercicios-Programacao/PraticaProgramacao/Linguagens/C++/14_Sum_of_Primes/build/CMakeFiles/rebuild_cache.dir
