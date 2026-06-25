@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 3.10)
-project(sum_of_primes)
-add_compile_options(-Wall)
-file(GLOB_RECURSE main src/*.h src/*.cpp)
-add_executable(main ${main})
