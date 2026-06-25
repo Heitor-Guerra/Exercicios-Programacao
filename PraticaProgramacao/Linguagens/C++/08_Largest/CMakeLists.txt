@@ -1,5 +1,0 @@
-cmake_minimum_required(VERSION 3.10)
-project(Largest)
-add_compile_options(-Wall -Werror)
-file(GLOB_RECURSE main src/*.cpp)
-add_executable(main ${main})

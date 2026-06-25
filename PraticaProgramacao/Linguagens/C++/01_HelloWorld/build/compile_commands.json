@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/build",
-  "command": "/usr/bin/c++  -I\"/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/Includes\" -isystem /usr/include/opencv4 -Wall -Wextra -o CMakeFiles/example.dir/src/main.cpp.o -c \"/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/src/main.cpp\"",
-  "file": "/home/Heitor-Guerra/Documents/Prática Programação/C++/HelloWorld/src/main.cpp",
-  "output": "CMakeFiles/example.dir/src/main.cpp.o"
-}
-]
