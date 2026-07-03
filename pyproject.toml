@@ -2,18 +2,20 @@
 name = "redes-neurais"
 version = "0.1.0"
 description = "Projeto de Redes Neurais para a disciplina de TTI"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 dependencies = [
-    "ipykernel>=7.2.0",
-    "jupyter>=1.1.1",
-    "kagglehub==1.0.1",
-    "matplotlib==3.10.8",
-    "opencv-python==4.13.0.92",
-    "pandas==3.0.2",
-    "requests==2.33.1",
-    "scikit-learn==1.8.0",
-    "seaborn==0.13.2",
-    "torch>=2.12.1",
-    "torchvision>=0.27.1",
-    "tqdm==4.67.3",
+    "gensim>=4.4.0",
+    "ipykernel",
+    "jupyter",
+    "kagglehub",
+    "matplotlib",
+    "opencv-python",
+    "pandas",
+    "requests",
+    "scikit-learn",
+    "seaborn",
+    "torch",
+    "torchvision",
+    "tqdm",
+    "unidecode>=1.4.0",
 ]
