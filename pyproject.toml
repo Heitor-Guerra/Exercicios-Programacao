@@ -4,18 +4,23 @@ version = "0.1.0"
 description = "Projeto de Redes Neurais para a disciplina de TTI"
 requires-python = ">=3.12"
 dependencies = [
+    "basedpyright>=1.39.9",
     "gensim>=4.4.0",
     "ipykernel",
     "jupyter",
+    "jupyter-lsp>=2.3.1",
+    "jupyterlab-lsp>=5.3.0",
     "kagglehub",
     "matplotlib",
     "opencv-python",
     "pandas",
+    "pandas-stubs~=3.0.2",
     "requests",
     "scikit-learn",
     "seaborn",
     "torch",
     "torchvision",
     "tqdm",
+    "transformers==5.13.0",
     "unidecode>=1.4.0",
 ]
