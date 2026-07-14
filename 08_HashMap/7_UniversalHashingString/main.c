@@ -2,6 +2,8 @@
 
 int universalHash(int seed, int updateValue, int hashSize, char *str) {
   int hashVal = 0;
+  seed = 31415;
+  updateValue = 27183;
   for (; *str != '\0'; str++) {
     hashVal = (seed * hashVal + *str) % hashSize;
     seed = (seed * updateValue) % (hashSize - 1);
