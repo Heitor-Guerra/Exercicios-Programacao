@@ -1,0 +1,26 @@
+[project]
+name = "k-means"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Heitor Guerra", email = "heitor.guerra@proton.me" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+k-means = "k_means:main"
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+reportMissingTypeStubs = false
+ignore = ["__pycache__"]
+reportAttributeAccessIssue = "none"
+reportCallIssue = "none"
+reportArgumentType = "warning"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
