@@ -1,6 +1,7 @@
-from django.core.exceptions import ObjectDoesNotExist
+from decimal import Decimal
 
 from currency.models import Currency
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class CurrencyService:
@@ -28,9 +29,9 @@ class CurrencyService:
     def convert(self, value: float, source: str, dest: str) -> float:
         """Return the converted value"""
         try:
-            currency_from = Currency.objects.get(acronym="source")
-            currency_to = Currency.objects.get(acronym="source")
+            currency_from = Currency.objects.get(acronym=source)
+            currency_to = Currency.objects.get(acronym=dest)
         except ObjectDoesNotExist:
             raise ValueError("Currency not found")
 
-        return value * currency_to.usd_rate / currency_from.usd_rate
+        return Decimal(str(value)) * currency_to.usd_rate / currency_from.usd_rate

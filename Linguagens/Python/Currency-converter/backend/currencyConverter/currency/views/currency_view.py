@@ -8,7 +8,7 @@ from currency.services.currency_service import (
 
 class CurrencyView(APIView):
     def get(self, request):
-        service = CurrencyService
+        service = CurrencyService()
         currencies = service.get_all_currencies()
         return Response(
             [
