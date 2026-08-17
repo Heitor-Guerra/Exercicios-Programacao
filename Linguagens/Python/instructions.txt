@@ -12,3 +12,5 @@ libs: uv add <nome>
 lock: uv lock
 notebook: uv run --with jupyter jupyter lab
 lib list: uv freeze
+create django: djagno-admin startproject <nome>
+run django: python manage.py runserver

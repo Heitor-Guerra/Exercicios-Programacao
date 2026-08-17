@@ -1,0 +1,10 @@
+Angular:
+install: npm install -g @angular/cli
+init: ng new <nome>
+generate component: ng g <tipo> <caminho>
+run: ng serve --host 0.0.0.0 | npm start
+
+
+React:
+init: npm create vite@latest my-app -- --template react-ts
+run: npm dev
