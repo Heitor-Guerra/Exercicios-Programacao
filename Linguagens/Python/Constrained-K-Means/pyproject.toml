@@ -1,0 +1,20 @@
+[project]
+name = "constrained-k-means"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.2",
+]
+
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+reportMissingTypeStubs = false
+ignore = ["__pycache__"]
+reportAttributeAccessIssue = "none"
+reportCallIssue = "none"
+reportArgumentType = "warning"
